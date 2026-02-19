@@ -1,0 +1,21 @@
+name: Daily Booking
+
+on:
+  schedule:
+    - cron: "0 23 * * *"   # Tunisia 00:00 = 23:00 UTC
+  workflow_dispatch:
+
+jobs:
+  book:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: node booking.js
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
