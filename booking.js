@@ -29,7 +29,13 @@ async function run() {
         if (!token) throw new Error("Token not found (expected login.data.token)");
 
         // 2) payload (array AM + PM)
-        const reservationdate = ymdLocalDaysFromNow(16);
+        const reservationdate = ymdLocalDaysFromNow(13);
+        console.log("Booking for (Tunisia):", reservationdate);
+
+        if (isWeekendInTunis(reservationdate)) {
+            console.log("⏭️ Weekend in Tunisia (Sat/Sun). Skipping booking.");
+            return;
+        }
         const payload = [
             { timeslot: "AM", user: USER_ID, desk: DESK_ID, reservationdate },
             { timeslot: "PM", user: USER_ID, desk: DESK_ID, reservationdate }
@@ -54,5 +60,17 @@ function ymdLocalDaysFromNow(days) {
     const d = new Date();
     d.setDate(d.getDate() + days);
     return d.toLocaleDateString("sv-SE"); // YYYY-MM-DD
+}
+function isWeekendInTunis(ymd) {
+    // ymd = "YYYY-MM-DD"
+    const [y, m, d] = ymd.split("-").map(Number);
+    const dt = new Date(Date.UTC(y, m - 1, d));
+
+    const dayName = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Africa/Tunis",
+        weekday: "short"
+    }).format(dt);
+
+    return dayName === "Sat" || dayName === "Sun";
 }
 run();
