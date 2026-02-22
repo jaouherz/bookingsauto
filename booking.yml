@@ -2,7 +2,7 @@ name: Daily Booking
 
 on:
   schedule:
-    - cron: "30 14 * * *"   # 14:30 UTC = 15:30 Tunisia
+    - cron: "36 15 * * *"
   workflow_dispatch:
 
 jobs:
