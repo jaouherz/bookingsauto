@@ -29,7 +29,7 @@ async function run() {
         if (!token) throw new Error("Token not found (expected login.data.token)");
 
         // 2) payload (array AM + PM)
-        const reservationdate = ymdLocalDaysFromNow(16);
+        const reservationdate = ymdLocalDaysFromNow(13);
         const payload = [
             { timeslot: "AM", user: USER_ID, desk: DESK_ID, reservationdate },
             { timeslot: "PM", user: USER_ID, desk: DESK_ID, reservationdate }
