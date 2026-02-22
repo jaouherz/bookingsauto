@@ -2,7 +2,7 @@ name: Daily Booking
 
 on:
   schedule:
-    - cron: "40 15 * * *"
+    - cron: "00 15 * * *"
   workflow_dispatch:
 
 jobs:
@@ -19,4 +19,3 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
-- run: date -u && date
