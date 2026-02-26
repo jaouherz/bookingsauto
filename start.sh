@@ -4,8 +4,12 @@ set -e
 # start cron
 crond
 
-# start tiny server so Back4App sees open port
-node -e "require('http').createServer((req,res)=>res.end('OK')).listen(3000)"
+# ensure log file exists
+mkdir -p /var/log
+touch /var/log/booking.log
 
-# keep container alive
+# start tiny HTTP server IN BACKGROUND (so healthcheck passes)
+node -e "require('http').createServer((req,res)=>res.end('OK')).listen(3000,'0.0.0.0')" &
+
+# keep container alive + stream logs to Back4App logs UI
 tail -f /var/log/booking.log
