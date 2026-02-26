@@ -5,8 +5,8 @@ const PASSWORD = process.env.PASSWORD;
 const LOGIN_URL = "https://backend.oddo-tunis.work-point.tech/api/User/loginUser";
 const BOOK_URL  = "https://backend.oddo-tunis.work-point.tech/api/Operation/addNewReservations";
 
-const USER_ID = "699585126096565885dc9443";
-const DESK_ID = "656f3463c0404082c15d7607";
+const USER_ID = process.env.USER_ID;
+const DESK_ID = process.env.DESK_ID ;
 //const DESK_ID = "656f3256c0404082c15d7589";
 
 function tomorrowYmdLocal() {
