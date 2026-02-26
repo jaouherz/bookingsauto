@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# start cron
 crond
 
-npm start
+# keep container running + show logs
+touch /var/log/booking.log
+tail -f /var/log/booking.log
