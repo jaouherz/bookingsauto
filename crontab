@@ -1,2 +1,2 @@
 44 22 * * * cd /app && node booking.js  >> /var/log/booking.log 2>&1
-44 22 * * * cd /app && node booking2.js >> /var/log/booking.log 2>&1
+53 22 * * * cd /app && node booking2.js >> /var/log/booking.log 2>&1
