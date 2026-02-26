@@ -19,8 +19,8 @@ async function run() {
         const login = await axios.post(
             LOGIN_URL,
             {
-                Email: "mohamed-jaouher.zouari@oddo-bhf.com",
-                password: "JiLr6X*0"
+                Email: EMAIL,
+                password: PASSWORD
             },
             { headers: { "Content-Type": "application/json" } }
         );
