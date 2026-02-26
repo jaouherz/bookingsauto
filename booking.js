@@ -1,6 +1,7 @@
 const axios = require("axios");
 require("dotenv").config();
-
+const EMAIL = process.env.EMAIL;
+const PASSWORD = process.env.PASSWORD;
 const LOGIN_URL = "https://backend.oddo-tunis.work-point.tech/api/User/loginUser";
 const BOOK_URL  = "https://backend.oddo-tunis.work-point.tech/api/Operation/addNewReservations";
 
