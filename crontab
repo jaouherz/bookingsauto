@@ -1,1 +1,1 @@
-59 21 * * * cd /app && node booking.js >> /var/log/booking.log 2>&1
+15 22 * * * cd /app && node booking.js >> /var/log/booking.log 2>&1
