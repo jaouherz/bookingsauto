@@ -9,12 +9,13 @@ RUN npm ci --omit=dev
 
 COPY . .
 
-# Tunisia time so "midnight" means Tunisia midnight
 ENV TZ=Africa/Tunis
 
 COPY crontab /etc/crontabs/root
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
+
+EXPOSE 3000
 
 CMD ["/start.sh"]
