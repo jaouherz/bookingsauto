@@ -8,8 +8,8 @@ const EMAIL = process.env.EMAIL2;
 const PASSWORD = process.env.PASSWORD2;
 
 // If user/desk are same, keep these; if different, set USER_ID2/DESK_ID2 too.
-const USER_ID = process.env.USER_ID2 || process.env.USER_ID;
-const DESK_ID = process.env.DESK_ID2 || process.env.DESK_ID;
+const USER_ID = process.env.USER_ID2 ;
+const DESK_ID = process.env.DESK_ID2 ;
 
 function ymdLocalDaysFromNow(days) {
   const d = new Date();
